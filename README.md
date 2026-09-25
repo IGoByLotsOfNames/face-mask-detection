@@ -2,7 +2,7 @@
 
 This project revisits a computer-vision prototype created during the COVID-19 period. The original experiment trained a CNN on cropped face images and combined it with OpenCV face detection for webcam inference.
 
-This public edition separates model training from inference, removes datasets and serialized models, and labels outputs neutrally until the exact class-to-index mapping is recorded during retraining.
+This repository separates model training from inference, excludes datasets and serialized models, and labels outputs neutrally until the exact class-to-index mapping is recorded during retraining.
 
 ## What it demonstrates
 
@@ -13,7 +13,7 @@ This public edition separates model training from inference, removes datasets an
 
 ## Data
 
-The historical archive contains thousands of images and annotations, but they are not included here. Before publication:
+The historical archive contains thousands of images and annotations, but they are not included here. To reproduce or extend the work:
 
 1. Confirm the original dataset and its licence.
 2. Document the two classes and their index order.
@@ -43,10 +43,9 @@ Press Escape to close the camera window.
 
 - This is a historical learning project, not a safety or compliance system.
 - Face detection and classification can vary with lighting, pose, camera and mask style.
-- The public version intentionally does not claim a result until the cleaned pipeline is rerun.
+- The repository intentionally does not claim a result until the cleaned pipeline is rerun.
 - No demographic or device-level subgroup evaluation is available.
 
 ## Licence
 
 MIT for the code. Dataset and model rights are separate and are not granted here.
-
