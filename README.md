@@ -4,6 +4,8 @@
 
 I started this project during the COVID-19 period to explore how a model could classify face images using public/Kaggle data. It brought together two different tasks: finding a face in a frame, then classifying the resulting crop.
 
+The original project received a **Commendation at the 2022 Coding Lab International Coding Competition**.
+
 The maintained implementation makes that connection explicit. It uses a shared RGB input contract, saves class meanings with each model, supports camera-free prediction and produces traceable evaluation reports. It is a practical exploration of the details that make a computer-vision pipeline dependable beyond the training script.
 
 **Python · TensorFlow / Keras · OpenCV · CNNs · image preprocessing · model evaluation**
