@@ -11,3 +11,14 @@ artifacts/
 *.pkl
 *.xml
 
+
+*.egg-info/
+.pytest_cache/
+.runtime/
+*-validation.log
+build/
+dist/
+split-data/
+groups.csv
+manifest.json
+*.metadata.json

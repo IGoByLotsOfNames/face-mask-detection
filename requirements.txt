@@ -1,4 +1,2 @@
-tensorflow>=2.15,<2.18
-opencv-python>=4.9,<5
-numpy>=1.26,<3
-
+-r requirements-runtime.txt
+-e .
