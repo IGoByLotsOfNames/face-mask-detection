@@ -1,0 +1,8 @@
+include demo.py LICENSE README.md requirements*.txt
+recursive-include src *.py
+recursive-include tests *.py
+recursive-include tools *.py
+recursive-include sample-data/demo *.json *.md *.xml *.png
+recursive-include docs *.md *.json *.py *.png *.svg *.jpg
+global-exclude *.py[cod]
+global-exclude .DS_Store
