@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<annotation>
+  <filename>scene-04.png</filename>
+  <size>
+    <width>480</width>
+    <height>224</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <name>mask_weared_incorrect</name>
+    <bndbox>
+      <xmin>18</xmin>
+      <ymin>42</ymin>
+      <xmax>146</xmax>
+      <ymax>194</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>with_mask</name>
+    <bndbox>
+      <xmin>176</xmin>
+      <ymin>42</ymin>
+      <xmax>304</xmax>
+      <ymax>194</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>without_mask</name>
+    <bndbox>
+      <xmin>334</xmin>
+      <ymin>42</ymin>
+      <xmax>462</xmax>
+      <ymax>194</ymax>
+    </bndbox>
+  </object>
+</annotation>

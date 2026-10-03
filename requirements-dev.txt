@@ -1,0 +1,4 @@
+# Developer tools are separate from the research runtime lock.
+ruff==0.16.10
+coverage==7.16.2
+build==1.6.1

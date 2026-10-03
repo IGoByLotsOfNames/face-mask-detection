@@ -1,0 +1,245 @@
+[
+  {
+    "source_image": "images/scene-00.png",
+    "object_index": 0,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-00.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  {
+    "source_image": "images/scene-00.png",
+    "object_index": 2,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-01.png",
+    "object_index": 0,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-01.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-01.png",
+    "object_index": 2,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  {
+    "source_image": "images/scene-02.png",
+    "object_index": 0,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-02.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-02.png",
+    "object_index": 2,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  {
+    "source_image": "images/scene-03.png",
+    "object_index": 0,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-03.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  {
+    "source_image": "images/scene-03.png",
+    "object_index": 2,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-04.png",
+    "object_index": 0,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-04.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-04.png",
+    "object_index": 2,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  {
+    "source_image": "images/scene-05.png",
+    "object_index": 0,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-05.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-05.png",
+    "object_index": 2,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  {
+    "source_image": "images/scene-06.png",
+    "object_index": 0,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-06.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  {
+    "source_image": "images/scene-06.png",
+    "object_index": 2,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-07.png",
+    "object_index": 0,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-07.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-07.png",
+    "object_index": 2,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  },
+  {
+    "source_image": "images/scene-08.png",
+    "object_index": 0,
+    "probabilities": [
+      0.8,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-08.png",
+    "object_index": 1,
+    "probabilities": [
+      0.1,
+      0.8,
+      0.1
+    ]
+  },
+  {
+    "source_image": "images/scene-08.png",
+    "object_index": 2,
+    "probabilities": [
+      0.1,
+      0.1,
+      0.8
+    ]
+  }
+]

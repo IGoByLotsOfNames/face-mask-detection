@@ -1,2 +1,3 @@
 """Compatibility import for the packaged model."""
-from mask_detection.model import build_model
+
+from mask_detection.model import build_model as build_model
