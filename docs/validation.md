@@ -1,5 +1,21 @@
 # Software validation
 
+## Current implementation
+
+The three-category revision adds annotation preparation, grouped categorical
+splits, probability-vector evaluation and complete model bundles. Current
+commands, test results, coverage scope and remaining gaps are recorded in
+[testing and automation](testing.md). The optional TensorFlow integrations use
+synthetic colour images; they do not measure real face-mask accuracy.
+
+The record below is retained to show what was already checked in the maintained
+binary implementation before the current revision.
+
+## Historical binary baseline - 2 October 2026
+
+The record below describes the earlier binary revision and its test count; it
+does not describe the expanded suite in the current checkout.
+
 Validated on 2 October 2026, Windows x64 CPU, Python 3.12.14. Runtime: TensorFlow 2.20.0, Keras 3.15.1, OpenCV 4.12.0, NumPy 2.2.6 and Pillow 12.0.0. `requirements-runtime.txt` records installed versions.
 
 | Check | Observed result |
@@ -17,7 +33,7 @@ Other checks cover deterministic grouped splits, connected duplicate handling, c
 
 The final suite contains 28 tests: 27 core and one optional runtime integration test. After the overlapping-crop correction, the core suite was rerun; training/evaluation code was unchanged.
 
-CI repeats core tests on Python 3.11/3.12 and runtime tests on Linux/Windows with Python 3.12. Remote CI status must be checked in the workflow; this record reports local execution only.
+At that point, CI was configured for core tests on Python 3.11/3.12 and runtime tests on Linux/Windows with Python 3.12. Remote CI status must be checked in the workflow; this record reports local execution only.
 
 Keras emits upstream serialization/reset deprecation messages, and TensorFlow may log end-of-sequence notices. The final run completed both requested epochs and passed all tests.
 
