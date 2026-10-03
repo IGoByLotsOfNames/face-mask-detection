@@ -15,8 +15,8 @@
   "group_definition": "source image SHA-256, not person identity",
   "hash_scope": "all raw inputs, predictions.json and expected.json; excludes manifest and README",
   "files": {
-    "expected.json": "ca8a9e07862ee38fecb10115d6b114f47d99d0a0ce5868ac4ce367555d2c1ef2",
-    "predictions.json": "c2a550903644cf156f2cfc9602f3ee5701690f953f50d63441abaa4fb2d41751",
+    "expected.json": "216d403c7ea653fa771a790f7d5d8f649aa8bf93153e7639dc16a8df6c8fc6bc",
+    "predictions.json": "4245462bb217f3eb4db8a048f8eb08f5bef8ff6bc49e426b12026d18fbbcdba7",
     "raw/annotations/conflict-a.xml": "6586f904e83bd6feb9971fa33229b82c67cb9d6f062d0057a96e09ff9337a231",
     "raw/annotations/conflict-b.xml": "897908c68c7e639230db0dfa6425c57644b19c51c1aa253975e9ab78e634776b",
     "raw/annotations/scene-00.xml": "69b9418adb86f8475a6ea25939479d70d51c7fa2e2c5177a3b3b450b02548d4c",
