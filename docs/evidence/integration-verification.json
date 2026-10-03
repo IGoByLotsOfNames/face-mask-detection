@@ -1,0 +1,148 @@
+{
+  "recorded_date": "2026-10-03",
+  "platform": "Windows 11",
+  "python": "3.12.14",
+  "baseline_commit": "5f2e2ba9796b00255a3d93808f7ecdefdb6c5ecc",
+  "scope": "Complete integration-copy Python suite after the launcher refinement; not a real-image accuracy study",
+  "tests": {
+    "command": "python -m coverage run -m unittest discover -s tests -v",
+    "RUN_ML_TESTS": "1",
+    "collected": 157,
+    "passed": 156,
+    "skipped": 1,
+    "skip_reason": "Windows cannot create the symbolic-link fixture without required privilege",
+    "duration_seconds": 121.118,
+    "launcher_tests_included": 15,
+    "tensorflow_integrations_included": true
+  },
+  "coverage": {
+    "scope": "src/mask_detection; statement and branch combined; subprocesses included",
+    "totals": {
+      "covered_lines": 1130,
+      "num_statements": 1239,
+      "percent_covered": 89.38775510204081,
+      "percent_covered_display": "89.39",
+      "missing_lines": 109,
+      "excluded_lines": 0,
+      "percent_statements_covered": 91.20258272800646,
+      "percent_statements_covered_display": "91.20",
+      "num_branches": 476,
+      "num_partial_branches": 71,
+      "covered_branches": 403,
+      "missing_branches": 73,
+      "percent_branches_covered": 84.66386554621849,
+      "percent_branches_covered_display": "84.66"
+    },
+    "configured_floor_percent": 85
+  },
+  "source_preservation": {
+    "implementation_files_verified_against_prepared_inventory": 15,
+    "implementation_files_unchanged": true,
+    "source_sha256": {
+      "src/model.py": "3a4dde41d1803fa1de769bb50cef56f5c0eb3b46f7b43236443409b1f9942922",
+      "src/train.py": "9c6f8c972094bf9c504a151adf1d04a4fe0e8ca86f8c58cd8ed1b70b5f9bb863",
+      "src/webcam.py": "59e1e264fdcf3aadc0b139e959748071f8d89a32a8aeee5720c209d0697d57c4",
+      "src/mask_detection/annotations.py": "f2c234b9f1e36016e620764cb97e310e9b8a88fe374f1cbfe8cb823afa54a3fb",
+      "src/mask_detection/artifacts.py": "8292188bfd9e6d7129bd8e6789751e4833668351ed436292c27ced6269f92bd3",
+      "src/mask_detection/data.py": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "src/mask_detection/demo.py": "82bb511fcf46136646de3e7ad98a26d136495c76df8ffbc4403becc4e5dfafd2",
+      "src/mask_detection/demo_report.py": "bb3b234313c8da05c27882c7fbce35ceda81fe1f8a63cfe1d22f2c8712c1b73f",
+      "src/mask_detection/evaluate.py": "47c2d9e461e836642bdd4d3cced0bcee7832c9aed34dfd053676173fe0dc935a",
+      "src/mask_detection/inference.py": "b3760bdff456a2f614510af8c6b27c21433736304d23a994c7b8c995be988883",
+      "src/mask_detection/metrics.py": "ad959a978574509d226633c80ada2f21b6e6d968d505ca691b843c98c3f1876e",
+      "src/mask_detection/model.py": "50f02697c0c9a31f119f55ef3edb72e26db1d5cb31a533c73a4eeac8e35101dc",
+      "src/mask_detection/train.py": "d926630117805482c7cdba8f59929771762a4668356b42980e44ad6b57c14a68",
+      "src/mask_detection/webcam.py": "ba2dbe5607f1bacb7e52ca908b4583d5e85f61af6838c64c2b6a0700c954f838",
+      "src/mask_detection/__init__.py": "70d19088063c71490e12279e575a33affec2e592a22d0e1118316dd2bcbe9990"
+    }
+  },
+  "checks": {
+    "initial_ruff_check": "passed",
+    "initial_ruff_format": {
+      "passed": true,
+      "python_files": 50
+    },
+    "dependency_consistency": "passed",
+    "integrated_demo": {
+      "passed": true,
+      "source_images": 12,
+      "retained_crops": 27,
+      "splits": {
+        "train": 21,
+        "validation": 3,
+        "test": 3
+      },
+      "pipeline_checks_passed": 6,
+      "pipeline_checks_total": 6
+    },
+    "final_ruff_check": "passed",
+    "final_ruff_format": {
+      "passed": true,
+      "python_files": 52,
+      "historical_byte_exact_baseline_excluded": "docs/evidence/baseline-data.py"
+    },
+    "source_distribution": {
+      "archive_files": 102,
+      "verified_source_and_sample_files": 44,
+      "demo_exit_code": 0,
+      "demo_checks": {
+        "passed": 6,
+        "total": 6
+      },
+      "scope": "Extracted source demo using available Pillow; no model-accuracy claim",
+      "command": "python -m build --sdist; python tools/check_source_distribution.py dist/face_mask_detection-2.0.0.tar.gz",
+      "local_build": "build 1.6.1 with setuptools 84.0.0; --no-isolation used with these installed build dependencies",
+      "environment": "Separate Python environment with Pillow 12.0.0 and build tools; TensorFlow and project package not installed",
+      "tested_input_sha256": {
+        "MANIFEST.in": "95f2c3624a78d42df1b6bc916f7c9837f0e0e61e11c9435eb16f654cea7208ee",
+        "tools/check_source_distribution.py": "e3543d22c8873d0818dba9a8898b8bcddae1df2b85160a37ed1ef6fdd6768141",
+        "demo.py": "d84032e4111cdd7e121e4fe29bffe9ee28cbce40e93332f548198cf7f21e93c0",
+        "sample-data/demo/manifest.json": "1066252b257f1c6ae233cbf9c5eda9e559060f3389f21f28f5df3a19ccb05c0f"
+      }
+    },
+    "first_run_setup": {
+      "passed": true,
+      "source": "Extracted source distribution",
+      "initial_environment": "Fresh Python 3.12 environment with no Pillow/project/runtime packages",
+      "installation": "Private demo environment using pinned Pillow 12.0.0 from a local wheel; offline installation",
+      "first_run_pipeline_checks": {
+        "passed": 6,
+        "total": 6
+      },
+      "reuse_without_install_pipeline_checks": {
+        "passed": 6,
+        "total": 6
+      },
+      "pillow_wheel_sha256": "9fe611163f6303d1619bbcb653540a4d60f9e55e622d60a3108be0d5b441017a"
+    }
+  },
+  "remote_ci": "Not established by this local receipt; inspect GitHub Actions for the exact published commit",
+  "limitations": [
+    "Synthetic TensorFlow tests verify software contracts, not real mask-recognition accuracy.",
+    "The demo uses synthetic illustrations and scripted probabilities.",
+    "Camera hardware reliability and calibration remain unmeasured."
+  ],
+  "private_log_sha256": {
+    "full_suite": "239a43c2c2790907e454d36812ea89822f25cf47bdb90aec3ad22c3684495b31",
+    "coverage_json": "77e69f20c8b2bcbcc102c7465f44695b88173f038ce67fd283187a3e4619de97",
+    "source_build": "3d954b39a02ae10ef5fd5328c6fb866a60f559f97134878c0403b28d370330d5",
+    "source_distribution": "3342427d3050e7174df74602aa86abf2e7aad3a49d438e1b82bc1c2d6f4793bf",
+    "first_setup": "444d1f614fa39e6b081b7c629625d9dcf9fa5d7d58ab0f39b60a1a75648bf4d2",
+    "setup_reuse": "8ccc0afbc4cf5623c2efd6a154ac287885624050898392f3f65f4f47d317e221"
+  },
+  "configured_ci": {
+    "jobs": 6,
+    "core_python": [
+      "3.11",
+      "3.12",
+      "3.13"
+    ],
+    "synthetic_runtime_os": [
+      "Ubuntu",
+      "Windows"
+    ],
+    "synthetic_runtime_python": "3.12",
+    "source_distribution_python": "3.12",
+    "source_distribution_os": "Ubuntu"
+  }
+}

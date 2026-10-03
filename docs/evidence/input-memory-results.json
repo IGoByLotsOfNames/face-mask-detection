@@ -1,0 +1,1451 @@
+{
+  "schema_version": 1,
+  "title": "Input-pipeline process peak memory: decoded-image versus index shuffling",
+  "measured_date": "2026-10-03",
+  "run_id": "20261003T125155Z-40dde1b9",
+  "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+  "plan_file": "input-memory-plan.json",
+  "baseline_commit": "5f2e2ba9796b00255a3d93808f7ecdefdb6c5ecc",
+  "scope": "Fresh-process lifetime including Python/TensorFlow startup, verification and one shuffled dataset pass; no model training, prediction or camera input.",
+  "metric": "process_lifetime_peak_rss_bytes",
+  "mib_divisor": 1048576,
+  "method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+  "system": "Windows 11 build 26200, AMD64, 16 logical CPUs",
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "win32",
+    "packages": {
+      "tensorflow": "2.20.0",
+      "keras": "3.15.1",
+      "numpy": "2.2.6",
+      "Pillow": "12.0.0"
+    }
+  },
+  "user_reported_context": {
+    "power_mode": "performance",
+    "substantial_background_applications": "none reported",
+    "power_source": "not supplied"
+  },
+  "source_sha256": {
+    "baseline": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+    "indexed": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6"
+  },
+  "interpretation": {
+    "statistics": "Five fresh processes per implementation and image count. Standard deviation and variance use ddof=1. Each percentage reduction is calculated per matched seed before averaging. No observations excluded.",
+    "limits": "Single-machine synthetic binary input workload; not a training-memory, speed, classification-accuracy or camera-reliability result. The index array and manifest still scale with image count."
+  },
+  "independently_recomputed_summary": [
+    {
+      "rows": 256,
+      "raw_peaks_mib_by_seed": {
+        "baseline": [
+          310.3515625,
+          310.27734375,
+          310.546875,
+          310.3125,
+          310.1328125
+        ],
+        "indexed": [
+          267.90234375,
+          267.9453125,
+          267.6796875,
+          267.84375,
+          268.06640625
+        ]
+      },
+      "seeds": [
+        17,
+        29,
+        43,
+        71,
+        101
+      ],
+      "baseline": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 310.32421875,
+        "median": 310.3125,
+        "sample_sd": 0.1494108710851975,
+        "sample_variance": 0.0223236083984375,
+        "min": 310.1328125,
+        "max": 310.546875
+      },
+      "indexed": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 267.8875,
+        "median": 267.90234375,
+        "sample_sd": 0.14201246953667923,
+        "sample_variance": 0.02016754150390625,
+        "min": 267.6796875,
+        "max": 268.06640625
+      },
+      "delta_mib": {
+        "count": 5,
+        "ddof": 1,
+        "mean": -42.43671875,
+        "median": -42.44921875,
+        "sample_sd": 0.28921290428317037,
+        "sample_variance": 0.08364410400390625,
+        "min": -42.8671875,
+        "max": -42.06640625
+      },
+      "ratio": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 0.8632507117521898,
+        "median": 0.8632221522970421,
+        "sample_sd": 0.0008665200668805325,
+        "sample_variance": 7.508570263066426e-07,
+        "min": 0.8619622641509433,
+        "max": 0.8643600272060861
+      },
+      "mean_paired_reduction_percent": 13.674928824781022
+    },
+    {
+      "rows": 1024,
+      "raw_peaks_mib_by_seed": {
+        "baseline": [
+          455.0703125,
+          455.3359375,
+          454.96484375,
+          455.7578125,
+          455.72265625
+        ],
+        "indexed": [
+          268.625,
+          268.15234375,
+          268.8046875,
+          268.81640625,
+          268.875
+        ]
+      },
+      "seeds": [
+        17,
+        29,
+        43,
+        71,
+        101
+      ],
+      "baseline": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 455.3703125,
+        "median": 455.3359375,
+        "sample_sd": 0.36396734606816894,
+        "sample_variance": 0.13247222900390626,
+        "min": 454.96484375,
+        "max": 455.7578125
+      },
+      "indexed": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 268.6546875,
+        "median": 268.8046875,
+        "sample_sd": 0.2959819008732312,
+        "sample_variance": 0.08760528564453125,
+        "min": 268.15234375,
+        "max": 268.875
+      },
+      "delta_mib": {
+        "count": 5,
+        "ddof": 1,
+        "mean": -186.715625,
+        "median": -186.84765625,
+        "sample_sd": 0.4089677721677773,
+        "sample_variance": 0.167254638671875,
+        "min": -187.18359375,
+        "max": -186.16015625
+      },
+      "ratio": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 0.5899699016255772,
+        "median": 0.5899969999571423,
+        "sample_sd": 0.0007035194361860454,
+        "sample_variance": 4.949395970915312e-07,
+        "min": 0.5889110032084828,
+        "max": 0.5908251839513698
+      },
+      "mean_paired_reduction_percent": 41.003009837442285
+    },
+    {
+      "rows": 4096,
+      "raw_peaks_mib_by_seed": {
+        "baseline": [
+          1037.84765625,
+          1036.61328125,
+          1036.359375,
+          1036.74609375,
+          1036.6328125
+        ],
+        "indexed": [
+          273.2734375,
+          272.80078125,
+          272.5234375,
+          272.953125,
+          273.30859375
+        ]
+      },
+      "seeds": [
+        17,
+        29,
+        43,
+        71,
+        101
+      ],
+      "baseline": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 1036.83984375,
+        "median": 1036.6328125,
+        "sample_sd": 0.5808437445358314,
+        "sample_variance": 0.33737945556640625,
+        "min": 1036.359375,
+        "max": 1037.84765625
+      },
+      "indexed": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 272.971875,
+        "median": 272.953125,
+        "sample_sd": 0.32978791791207457,
+        "sample_variance": 0.10876007080078125,
+        "min": 272.5234375,
+        "max": 273.30859375
+      },
+      "delta_mib": {
+        "count": 5,
+        "ddof": 1,
+        "mean": -763.86796875,
+        "median": -763.8125,
+        "sample_sd": 0.4483806720307882,
+        "sample_variance": 0.20104522705078126,
+        "min": -764.57421875,
+        "max": -763.32421875
+      },
+      "ratio": {
+        "count": 5,
+        "ddof": 1,
+        "mean": 0.26327291588929197,
+        "median": 0.2632786625823735,
+        "sample_sd": 0.00025086965622083177,
+        "sample_variance": 6.29355844123583e-08,
+        "min": 0.262962292882235,
+        "max": 0.26365034026935164
+      },
+      "mean_paired_reduction_percent": 73.6727084110708
+    }
+  ],
+  "observations_in_execution_order": [
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 256,
+      "seed": 71,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 280854528,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 256,
+      "seed": 71,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 325386240,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 4096,
+      "seed": 29,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 286052352,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 4096,
+      "seed": 29,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 1086967808,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 256,
+      "seed": 29,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 280961024,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 256,
+      "seed": 29,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 325349376,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 1024,
+      "seed": 17,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 281673728,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 1024,
+      "seed": 17,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 477175808,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 256,
+      "seed": 101,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 325197824,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 256,
+      "seed": 101,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 281088000,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 4096,
+      "seed": 101,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 1086988288,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 4096,
+      "seed": 101,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 286584832,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 4096,
+      "seed": 43,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 1086701568,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 4096,
+      "seed": 43,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 285761536,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 1024,
+      "seed": 101,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 281935872,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 1024,
+      "seed": 101,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 477859840,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 4096,
+      "seed": 71,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 286212096,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 4096,
+      "seed": 71,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 1087107072,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 256,
+      "seed": 43,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 325632000,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 256,
+      "seed": 43,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 280682496,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 1024,
+      "seed": 43,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 281862144,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 1024,
+      "seed": 43,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 477065216,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 1024,
+      "seed": 71,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 477896704,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 1024,
+      "seed": 71,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 281874432,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 1024,
+      "seed": 29,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 477454336,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 1024,
+      "seed": 29,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 281178112,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 32,
+      "processed_rows": 1024,
+      "membership_sha256": "c89db7222126863309183fc023c7091fb18392d16a397dac76a96a022cd62cef",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 256,
+      "seed": 17,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 325427200,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 256,
+      "seed": 17,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 280915968,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 8,
+      "processed_rows": 256,
+      "membership_sha256": "8808405eec6fbe306fe3369f88daed79dd5613ddbb5e801f632b01d6218c5f08",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "baseline",
+      "rows": 4096,
+      "seed": 17,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 1088262144,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "270ca39a449477078cca3d2aa72a40cb7ecb8c1c914d1ad48eec5ddaf20da4cc",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    },
+    {
+      "schema_version": 1,
+      "implementation": "indexed",
+      "rows": 4096,
+      "seed": 17,
+      "metric": "process_lifetime_peak_rss_bytes",
+      "peak_rss_bytes": 286547968,
+      "metric_method": "Windows GetProcessMemoryInfo PeakWorkingSetSize",
+      "plan_sha256": "ccdfef19e18c0f5d2a49e7a9907efded99a7a685146c905d9de9e20edd0b40de",
+      "source_sha256": "dbe71ddaeab3983721fd1312a0dea30aa1dd33416ee22a00f3f4e77d9d3f47d6",
+      "inputs_sha256": "2ccb79b43c88314efe857a80cbe137f11d32e15072c32ba65924a23c843ade0f",
+      "image_size": [
+        128,
+        128
+      ],
+      "batch_size": 32,
+      "batches": 128,
+      "processed_rows": 4096,
+      "membership_sha256": "6b0751ba5e64fc9c13ddfb44778fa7d6a1f7d7aa9d6a5e38a1f0a1502c3fb9e3",
+      "correctness": "all constant RGB pixels encode each ID exactly once; label=id%2",
+      "runtime": {
+        "python": "3.12.14",
+        "platform": "win32",
+        "packages": {
+          "tensorflow": "2.20.0",
+          "keras": "3.15.1",
+          "numpy": "2.2.6",
+          "Pillow": "12.0.0"
+        }
+      },
+      "system": "Windows-11-10.0.26200-SP0",
+      "tensorflow_devices": [
+        "CPU"
+      ],
+      "threads": {
+        "intra_op": 2,
+        "inter_op": 1
+      },
+      "scope": "process lifetime through imports, preflight, one complete dataset pass and correctness/provenance checks; excludes receipt writing; no model"
+    }
+  ],
+  "evidence_checks": {
+    "worker_receipts": 30,
+    "zero_worker_exits": 30,
+    "empty_worker_stderr": 30,
+    "synthetic_fixture_hashes_checked": 4096,
+    "original_result_files_hash_checked": 155,
+    "source_tools_match_measured_versions": true,
+    "no_benchmark_rerun_for_publication": true
+  }
+}
