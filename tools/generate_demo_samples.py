@@ -21,7 +21,8 @@ BOXES = ((18, 42, 146, 194), (176, 42, 304, 194), (334, 42, 462, 194))
 
 
 def _json(path: Path, value: object) -> None:
-    path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
+    # Raw hashes must reproduce on both Windows and Unix checkouts.
+    path.write_bytes((json.dumps(value, indent=2) + "\n").encode("utf-8"))
 
 
 def _scene(index: int) -> Image.Image:
@@ -211,7 +212,7 @@ def generate(destination: Path) -> dict:
         "files": files,
     }
     _json(destination / "manifest.json", manifest)
-    (destination / "README.md").write_text(README, encoding="utf-8")
+    (destination / "README.md").write_bytes(README.encode("utf-8"))
     return manifest
 
 
