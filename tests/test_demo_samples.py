@@ -7,6 +7,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from PIL import Image
+
 from mask_detection.annotations import CLASS_NAMES, prepare_annotations
 from mask_detection.data import create_split, read_groups, validate_manifest
 
@@ -92,7 +94,40 @@ class IncludedDemoSamplesTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             destination = Path(directory) / "samples"
             generator.generate(destination)
-            self.assertEqual(hashes(SAMPLES), hashes(destination))
+            original_hashes, generated_hashes = hashes(SAMPLES), hashes(destination)
+            self.assertEqual(set(original_hashes), set(generated_hashes))
+            generated_manifest = read_json(destination / "manifest.json")
+            original_manifest = read_json(SAMPLES / "manifest.json")
+            self.assertEqual(
+                {key: value for key, value in original_manifest.items() if key != "files"},
+                {key: value for key, value in generated_manifest.items() if key != "files"},
+            )
+            self.assertEqual(set(original_manifest["files"]), set(generated_manifest["files"]))
+            for name, digest in generated_manifest["files"].items():
+                self.assertEqual(digest, generated_hashes[name], name)
+            for name in original_hashes:
+                with self.subTest(file=name):
+                    if name.endswith(".png"):
+                        # Different Pillow/zlib builds can encode identical pixels differently.
+                        # The separate fixture test still verifies every published raw hash.
+                        with (
+                            Image.open(SAMPLES / name) as original,
+                            Image.open(destination / name) as generated,
+                        ):
+                            self.assertEqual(
+                                ("RGB", original.size), (generated.mode, generated.size)
+                            )
+                            self.assertEqual(original.mode, generated.mode)
+                            self.assertEqual(original.tobytes(), generated.tobytes())
+                    elif name.endswith(".json") and name != "manifest.json":
+                        self.assertEqual(read_json(SAMPLES / name), read_json(destination / name))
+                    elif name != "manifest.json":
+                        self.assertEqual(original_hashes[name], generated_hashes[name])
+            repeated = Path(directory) / "repeated"
+            generator.generate(repeated)
+            self.assertEqual(generated_hashes, hashes(repeated))
+            for name in ("manifest.json", "expected.json", "predictions.json", "README.md"):
+                self.assertNotIn(b"\r\n", (destination / name).read_bytes(), name)
             with self.assertRaises(FileExistsError):
                 generator.generate(destination)
 

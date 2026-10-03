@@ -22,7 +22,8 @@ class MemoryWorkerTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        # The coordinator passes resolved roots; TEMP may be a Windows 8.3 alias.
+        self.root = Path(self.temp.name).resolve()
         (self.root / "results").mkdir()
         self.runtime = {"python": "fixture", "platform": "fixture", "packages": {}}
         self.runtime_patch = patch.object(worker, "runtime_identity", return_value=self.runtime)
